@@ -1,5 +1,7 @@
 import swaggerJSDoc from 'swagger-jsdoc';
+import dotenv from 'dotenv'
 
+dotenv.config();
 const options = {
   definition: {
     openapi: '3.0.0',
@@ -10,7 +12,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:3000'
+        url: process.env.NODE_ENV == "development" ? 'http://localhost:3000' : 'https://capstone-project-exercise-4.onrender.com'
       }
     ],
     components: {
