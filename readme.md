@@ -73,4 +73,8 @@ A fully functional RESTful API that helps users track income and expenses, organ
 
 ## Screenshot Project
 
-![alt text](image-1.png)
+![alt text](//frontend/src/assets/images/dashboard.png)
+
+![alt text](//frontend/src/assets/images/register.png)
+
+![alt text](//frontend/src/assets/images/login.png)
