@@ -35,7 +35,7 @@ export const login = async (req, res, next) => {
     }
         console.log("User info", user)
     const token = generateToken(user._id);
-    res.json({ token });
+    res.json({ token, user });
   } catch (err) {
     next(err);
   }

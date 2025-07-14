@@ -1,4 +1,6 @@
 import express from 'express'
+import path from 'path'
+import { fileURLToPath } from 'url'
 import dotenv from 'dotenv'
 import helmet from 'helmet';
 dotenv.config();
@@ -32,7 +34,7 @@ app.use(helmet());
 app.use(express.json())
 app.use(cors(
   {
-    origin:["http://localhost:5879", "http://dugsiiye.com"]
+    origin:["http://localhost:5173", "http://dugsiiye.com"]
   }
 ))
 
@@ -41,19 +43,34 @@ if(process.env.NODE_ENV == "development"){
     app.use(morgan('dev'))
 }
 
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.get('/', (req, res) =>{
-    res.json(users)
+app.get('/api/health', (req, res) =>{
+    res.json("server is working.....")
 })
 
-app.use('/auth', authRoutes)
-app.use('/transaction', transactionRoutes)
-app.use('/categories', categoriesRoutes)
-app.use('/profile-picture', uploadProfileRoutes)
-app.use('/admin', adminRoutes)
 
 
+
+app.use('/api/auth', authRoutes)
+app.use('/api/transaction', transactionRoutes)
+app.use('/api/categories', categoriesRoutes)
+app.use('/api/profile-picture', uploadProfileRoutes)
+app.use('/api/admin', adminRoutes)
+
+// Server frontend in production
+
+if(process.env.NODE_ENV === "production") {
+
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+  // The Server frontend app
+
+  app.get(/.*/, (req, res)=>{
+    res.send(path.join(__dirname, '..', 'frontend', 'dist', 'index.html'));
+  })
+}
 
 
 app.use(notFound);

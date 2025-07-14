@@ -19,7 +19,9 @@ const router = express.Router();
  *       403:
  *         description: Forbidden - not an admin
  */
-router.get('/users', protect, authorize('admin'), getAllUsers);
+// router.get('/users', protect, authorize('admin'), getAllUsers);
+
+router.get('/users', getAllUsers)
 
 /**
  * @swagger

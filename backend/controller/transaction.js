@@ -16,7 +16,7 @@ export const createTransaction = async (req, res, next) =>{
 
 export const getMyTransactions = async (req, res, next) =>{
     try {
-        const task = await Transaction.find({createdBy: req.user._id});
+        const task = await Transaction.find({createdBy: req.user._id}).sort({createdAt: -1});
         res.status(201).json(task)
     } catch (err) {
         next(err)
@@ -92,12 +92,12 @@ export const updateTransaction = async (req, res, next) =>{
 
 export const deleteTransaction = async (req, res, next) => {
   try {
-    const task = await Transaction.findOneAndDelete({
+    const tran = await Transaction.findOneAndDelete({
       _id: req.params.id,
       createdBy: req.user._id
     });
-    if (!task) return res.status(404).json({ message: 'Task not found' });
-    res.json({ message: 'Task deleted' });
+    if (!tran) return res.status(404).json({ message: 'Transaction not found' });
+    res.json({ message: 'Transaction deleted' });
   } catch (err) {
     next(err);
   }

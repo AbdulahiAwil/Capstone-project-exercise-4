@@ -84,7 +84,7 @@ router.post('/login', login);
  *       401:
  *         description: Unauthorized
  */
-router.get('/profile', protect, (req, res) => {
+router.get('/me', protect, (req, res) => {
   res.json(req.user);
 });
 
