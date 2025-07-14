@@ -2,9 +2,10 @@ import React from 'react'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Image1 from '../../assets/images/welcome.jpg'
+import Image2 from '../../assets/images/authImage.jpg'
 
 function DashboardWelcome({ onCreateTask, showCreateForm }) {
-  const backgroundImage = `url(${Image1})`;
+  const backgroundImage = `url(${Image2})`;
 
   return (
     <Card

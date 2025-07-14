@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ClipboardCheck, Edit2, Trash, Loader } from 'lucide-react';
+import { ClipboardCheck, Edit2, Trash, Loader, BanknoteArrowDown } from 'lucide-react';
 import {
   Table,
   TableBody,
@@ -61,7 +61,7 @@ const TransactionTable = ({ transaction = [], emptyMessage, onEdit }) => {
   if (transaction.length === 0) {
     return (
       <div className="text-center py-12">
-        <ClipboardCheck className="mx-auto h-12 w-12 text-muted-foreground" />
+        <BanknoteArrowDown className="mx-auto h-12 w-12 text-muted-foreground" />
         <h3 className="mt-4 text-sm font-medium text-foreground">No transactions found</h3>
         <p className="mt-2 text-sm text-muted-foreground">{emptyMessage}</p>
       </div>

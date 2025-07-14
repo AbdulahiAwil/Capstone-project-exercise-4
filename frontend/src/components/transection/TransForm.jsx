@@ -101,7 +101,7 @@ function TaskForm({trans, open= true, onOpenChange}) {
         },
         onSuccess: (data) => {
             console.log("Transaction created successfully:", data);
-            toast.success('Task created successfully', { description: 'Your transaction has been created.' });
+            toast.success('Transaction created successfully', { description: 'Your transaction has been created.' });
             queryClient.invalidateQueries(['trans']);
             onOpenChange?.(false);
             setFormValues({
@@ -126,7 +126,7 @@ const updateTransMutation = useMutation({
         },
         onSuccess: (data) => {
 
-            toast.success('Task updated successfully', { description: 'Your task has been updated.' });
+            toast.success('Transaction updated successfully', { description: 'Your transaction has been updated.' });
             queryClient.invalidateQueries(['trans']);
             onOpenChange?.(false);
             setFormValues({
