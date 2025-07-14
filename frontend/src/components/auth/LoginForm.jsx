@@ -4,6 +4,7 @@ import api from '../../lib/api/apiClient'
 import { extractErrorMessages } from '../../util/errorUtils'
 import { useNavigate } from 'react-router'
 import useAuthStore from '../../lib/store/authStore'
+import Image2 from '../../assets/images/authImage.jpg'
 function LoginForm() {
   const navigate = useNavigate()
   const {setAuth } = useAuthStore();
@@ -74,7 +75,7 @@ function LoginForm() {
   {/* Left Side - Hidden on mobile */}
   <div className="hidden md:flex w-1/2 items-center justify-center">
     <img
-      src="https://plus.unsplash.com/premium_photo-1729009106410-9d37259015e0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D"
+      src={Image2}
       className="rounded-s-xl shadow-lg h-full object-cover"
       alt="Login visual"
     />

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { useMutation } from '@tanstack/react-query'
 import { extractErrorMessages } from '../../util/errorUtils';
 import { LoaderCircle } from 'lucide-react';
+import Image2 from '../../assets/images/authImage.jpg'
 // import { input } from '../ui/input'
 function RegisterForm() {
     const navigate = useNavigate()
@@ -70,7 +71,7 @@ function RegisterForm() {
   {/* Left Side (Image) - Hidden on Mobile */}
   <div className="hidden md:flex w-1/2 items-center justify-center">
     <img
-      src="https://plus.unsplash.com/premium_photo-1729009106410-9d37259015e0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D"
+      src={Image2}
       className="h-full object-cover"
       alt="Register visual"
     />
